@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Get access — Nina Lomia</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="index.html">NINA LOMIA</a>
+    <a class="menu" href="index.html">← Back to home</a>
+  </header>
+</div>
+<main class="narrow">
+  <div class="intro">
+    <div class="eyebrow" data-access-eyebrow></div>
+    <h1 data-access-title></h1>
+    <p data-access-lead></p>
+  </div>
+  <form class="access step" data-access novalidate>
+    <div class="field single">
+      <label for="acc-country">Country</label>
+      <select id="acc-country" name="COUNTRY" required>
+          <option value="">Select your country</option>
+          <optgroup label="USA and Canada"><option value="us">United States</option><option value="us">Canada</option></optgroup>
+          <optgroup label="United Kingdom and Ireland"><option value="uk">United Kingdom</option><option value="uk">Ireland</option></optgroup>
+          <optgroup label="Europe">
+            <option value="eu">Germany</option><option value="eu">France</option><option value="eu">Spain</option><option value="eu">Italy</option><option value="eu">Netherlands</option><option value="eu">Poland</option><option value="eu">Czechia</option><option value="eu">Other European country</option>
+          </optgroup>
+          <optgroup label="Oceania"><option value="oceania">Australia</option><option value="oceania">New Zealand</option></optgroup>
+          <optgroup label="Other"><option value="other">Israel</option><option value="other">Other country</option></optgroup>
+      </select>
+    </div>
+    <div class="field single">
+      <label for="acc-email">Email</label>
+      <input id="acc-email" name="EMAIL" type="email" placeholder="you@example.com" autocomplete="email" required>
+    </div>
+    <button class="btn" type="submit">Continue</button>
+    <p class="form-note" role="status" hidden></p>
+    <p class="consent">By clicking the button, you agree to receive emails from Nina Lomia. You can unsubscribe at any time.</p>
+  </form>
+</main>
+<div class="wrap">
+  <footer class="foot" style="padding-top:32px">
+    <div class="links"><div>
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </div></div>
+    <div class="legal"><div>Nina Lomia is a character created by artificial intelligence. The materials do not replace consultation with a licensed professional. © 2026 Nina Lomia</div></div>
+  </footer>
+</div>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
