@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Копилка Нины: книги, подарки и идеи — Нина Ломия</title>
+<meta name="description" content="Книги об отношениях мам и дочерей, подарки и идеи, что сделать вместе. Для каждой страны свои магазины.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="index.html">НИНА ЛОМИЯ</a>
+    <a class="menu" href="index.html">← На главную</a>
+  </header>
+</div>
+
+<main class="narrow" data-kopilka>
+  <div class="intro">
+    <div class="eyebrow">Копилка Нины</div>
+    <h1>Книги, подарки и идеи, которые Нина собирает для вас</h1>
+    <p>Мы собираем то, что помогает близким быть ближе: книги об отношениях мам и дочерей, подарки, идеи, что сделать вместе. Магазины и доставка в разных странах разные, поэтому сначала скажите, где вы живёте.</p>
+  </div>
+
+  <form data-form="kopilka" novalidate style="display:contents">
+    <div class="step">
+      <h2>1. В какой стране вы живёте?</h2>
+      <div class="field single">
+        <label for="kop-country">Страна</label>
+        <select id="kop-country" name="COUNTRY" required>
+          <option value="">Выберите страну</option>
+          <optgroup label="США и Канада">
+            <option value="us">США</option>
+            <option value="us">Канада</option>
+          </optgroup>
+          <optgroup label="Европа">
+            <option value="eu">Великобритания</option>
+            <option value="eu">Германия</option>
+            <option value="eu">Франция</option>
+            <option value="eu">Испания</option>
+            <option value="eu">Италия</option>
+            <option value="eu">Нидерланды</option>
+            <option value="eu">Польша</option>
+            <option value="eu">Чехия</option>
+            <option value="eu">Другая страна Европы</option>
+          </optgroup>
+          <optgroup label="Россия и СНГ">
+            <option value="ru">Россия</option>
+            <option value="ru">Украина</option>
+            <option value="ru">Беларусь</option>
+            <option value="ru">Казахстан</option>
+            <option value="ru">Грузия</option>
+            <option value="ru">Армения</option>
+            <option value="ru">Другая страна СНГ</option>
+          </optgroup>
+          <optgroup label="Другие">
+            <option value="other">Израиль</option>
+            <option value="other">Другая страна</option>
+          </optgroup>
+        </select>
+      </div>
+      <p class="hint" data-region-hint>Выберите страну, и мы покажем, какие магазины планируем подключить. Нет вашей страны в списке? Выберите «Другая страна».</p>
+      <div data-region-box hidden>
+        <div class="eyebrow">Для вашей страны</div>
+        <p class="shops" data-region-shops></p>
+        <div class="small">[Предварительный список: партнёрские программы пока не подключены]</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <h2>2. Куда прислать копилку?</h2>
+      <div class="field single">
+        <label for="kop-email">Email</label>
+        <input id="kop-email" name="EMAIL" type="email" placeholder="you@example.com" autocomplete="email" required>
+      </div>
+      <div class="pay">
+        <button class="btn" type="submit">Открыть копилку</button>
+      </div>
+      <p class="form-note" role="status" hidden style="margin:0"></p>
+      <p class="consent">Мы используем почту, чтобы прислать копилку и письма Нины. Отписаться можно в любой момент.</p>
+    </div>
+  </form>
+
+  <div class="step items" id="kop-inside">
+    <h2>Что внутри</h2>
+    <div>
+      <div class="it"><div><h3>Книги</h3><p>Об отношениях мам и дочерей, границах и примирении, с короткой заметкой Нины к каждой.</p></div><span class="soon">СКОРО</span></div>
+      <div class="it"><div><h3>Подарки для мам</h3><p>Идеи, которые говорят «я о тебе думаю», без лишнего пафоса.</p></div><span class="soon">СКОРО</span></div>
+      <div class="it"><div><h3>Подарки для дочерей</h3><p>Подарки для взрослых дочерей, которые бережно напоминают: ты важна.</p></div><span class="soon">СКОРО</span></div>
+      <div class="it"><div><h3>Что сделать вместе</h3><p>Небольшие занятия и вопросы, с которых можно начать разговор.</p></div><span class="soon">СКОРО</span></div>
+    </div>
+    <div class="small" style="border-top:1px solid var(--line);padding-top:18px">Партнёрские ссылки: мы можем получить комиссию, для вас цена не изменится. Мы рекомендуем только то, что подарили бы близкому человеку.</div>
+  </div>
+</main>
+
+<div class="wrap">
+  <footer class="foot" style="padding-top:32px">
+    <div class="links"><div>
+      <a href="index.html">Главная</a>
+      <a href="privacy.html">Политика конфиденциальности</a>
+      <a href="terms.html">Условия</a>
+      <a href="index.html#top">Контакты</a>
+    </div></div>
+    <div class="legal">Нина Ломия — персонаж, созданный искусственным интеллектом. Материалы не заменяют консультацию лицензированного специалиста. © 2026 Нина Ломия</div>
+  </footer>
+</div>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
