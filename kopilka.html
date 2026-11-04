@@ -3,9 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<title>Nina's Holiday Gift Guide — gifts for mothers and daughters</title>
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="description" content="Nina's Holiday Gift Collection: memory journals for Mom and personalized Christmas ornaments, with stores that deliver to your country.">
+<title>Nina's Holiday Gift Collection — gifts for mothers and daughters</title>
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png?v=2" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,19 +23,47 @@
 </div>
 <main class="narrow" data-kopilka>
   <div class="intro">
-    <div class="eyebrow">Nina's Holiday Gift Guide</div>
-    <h1>Gifts that say “I'm thinking of you”</h1>
-    <p>A small selection for the holidays: things you can order where you live.</p>
-    <div class="region-line">
-      <span>Your country: <b data-region-name></b></span>
-      <span>Stores: <span data-region-shops></span></span>
-      <a href="access.html?m=kopilka">Change country</a>
+    <div class="eyebrow">For the holidays</div>
+    <h1>Nina's Holiday Gift Collection</h1>
+    <p>Gifts that say “I'm thinking of you”. The selection depends on where you live, so choose your country first.</p>
+    <div class="field" style="max-width:360px;flex:none">
+      <label for="kop-country">Your country</label>
+      <select id="kop-country" data-region-select aria-label="Your country">
+        <option value="" disabled selected>Choose your country</option>
+        <option value="us">USA and Canada</option>
+        <option value="uk">United Kingdom and Ireland</option>
+        <option value="eu">Europe</option>
+        <option value="oceania">Australia and New Zealand</option>
+        <option value="other">Other countries</option>
+      </select>
+    </div>
+    <div class="small"><b>Affiliate disclosure:</b> Nina may earn a commission when you buy through links on this page, at no extra cost to you.</div>
+  </div>
+
+  <div data-cats></div>
+
+  <div class="step">
+    <div class="eyebrow">Free from Nina</div>
+    <h2>Words to go with the gift</h2>
+    <div class="items">
+      <div class="it">
+        <div>
+          <h3>Phrases you shouldn't say to your adult daughter</h3>
+          <p>For mothers: a short list of words that hurt, and what to say instead.</p>
+        </div>
+        <a class="item-link" href="access.html?m=mom">Get the PDF</a>
+      </div>
+      <div class="it">
+        <div>
+          <h3>Phrases that help you stand your ground with Mom</h3>
+          <p>For daughters: ready-made replies to guilt, criticism, and unsolicited advice.</p>
+        </div>
+        <a class="item-link" href="access.html?m=daughter">Get the PDF</a>
+      </div>
     </div>
   </div>
-  <div class="step items">
-    <div data-items></div>
-    <div class="small" style="border-top:1px solid var(--line);padding-top:18px">Affiliate links: we may earn a commission, at no extra cost to you. We only recommend things we would give to someone we love. Check delivery times before the holidays when you order.</div>
-  </div>
+
+  <div class="small" style="border-top:1px solid var(--line);padding-top:18px;margin-top:40px">Prices, delivery, and returns are set by each seller. Check delivery times before the holidays when you order. We only recommend things we would give to someone we love.</div>
 </main>
 <div class="wrap">
   <footer class="foot" style="padding-top:32px">
@@ -40,8 +71,9 @@
       <a href="index.html">Home</a>
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
     </div></div>
-    <div class="legal"><div>Nina Lomia is a character created by artificial intelligence. The materials do not replace consultation with a licensed professional. © 2026 Nina Lomia</div></div>
+    <div class="legal"><p>Nina Lomia is an AI-created character sharing educational resources. Her content is not a substitute for professional mental health care.</p><p>&copy; 2026 Nina Lomia</p></div>
   </footer>
 </div>
 <script src="config.js"></script>

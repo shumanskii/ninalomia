@@ -198,3 +198,16 @@ h2 { margin: 0; font-size: 34px; line-height: 1.25; font-weight: 500; letter-spa
 .prose ul { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
 .prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .draft { font-size: 13.5px; color: var(--soft); border: 1px dashed var(--field); border-radius: 16px; padding: 12px 16px; }
+
+/* product card with photo gallery */
+.items .it.has-gallery { display: flex; flex-wrap: nowrap; align-items: flex-start; gap: 28px; }
+.items .it.has-gallery > div { flex: 1 1 auto; }
+.gallery { flex: 0 0 280px; width: 280px; display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: var(--field) transparent; padding-bottom: 10px; border-radius: 18px; }
+.gallery img { flex: 0 0 100%; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 18px; scroll-snap-align: start; background: var(--sel); }
+.items .it.has-gallery > .gallery { flex: 0 0 280px; }
+.has-gallery .item-act { margin-top: 14px; }
+.btn-small { min-height: 46px; padding: 0 26px; font-size: 14.5px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: var(--accent); color: var(--bg); text-decoration: none; }
+@media (max-width: 720px) {
+  .items .it.has-gallery { flex-wrap: wrap; }
+  .items .it.has-gallery > .gallery { flex: 0 0 100%; width: 100%; }
+}

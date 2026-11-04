@@ -109,40 +109,95 @@
       else { link.hidden = true; tnote.hidden = false; }
     }
     var kl = $('[data-thanks-kopilka]');
-    if (kl) { kl.setAttribute('href', REGIONS[tr] ? 'kopilka.html?r=' + tr : 'access.html?m=kopilka'); }
+    if (kl) { kl.setAttribute('href', REGIONS[tr] ? 'kopilka.html?r=' + tr : 'kopilka.html'); }
   }
 
-  /* Gift guide */
+  /* Holiday Gift Collection */
   var kop = $('[data-kopilka]');
   if (kop) {
+    var regionSelect = $('[data-region-select]');
+    var catsBox = $('[data-cats]');
+    var col = window.COLLECTION || { categories: [], items: {} };
     var r = param('r');
     if (!REGIONS[r]) { r = loadRegion(); }
-    if (!REGIONS[r]) { window.location.replace('access.html?m=kopilka'); return; }
-    saveRegion(r);
-    $('[data-region-name]').textContent = REGIONS[r];
-    $('[data-region-shops]').textContent = SHOPS[r];
-    var list = $('[data-items]');
-    ((window.COLLECTION || {})[r] || []).forEach(function (it) {
-      var row = document.createElement('div');
-      row.className = 'it';
-      var left = document.createElement('div');
-      var h = document.createElement('h3'); h.textContent = it.title;
-      var p = document.createElement('p'); p.textContent = it.text;
-      left.appendChild(h); left.appendChild(p);
-      if (it.shop && it.url) {
-        var s = document.createElement('div'); s.className = 'item-shop'; s.textContent = it.shop; left.appendChild(s);
-      }
-      row.appendChild(left);
-      if (it.url) {
-        var a = document.createElement('a');
-        a.className = 'item-link'; a.textContent = 'View'; a.href = it.url;
-        a.target = '_blank'; a.rel = 'sponsored noopener';
-        row.appendChild(a);
-      } else {
-        var sp = document.createElement('span'); sp.className = 'soon'; sp.textContent = 'SOON';
-        row.appendChild(sp);
-      }
-      list.appendChild(row);
-    });
+    if (!REGIONS[r]) { r = ''; }
+
+    function externalLink(label, url, cls) {
+      var a = document.createElement('a');
+      a.className = cls; a.textContent = label; a.href = url;
+      a.target = '_blank'; a.rel = 'sponsored noopener';
+      return a;
+    }
+
+    function render() {
+      catsBox.textContent = '';
+      if (!r) { return; }
+      col.categories.forEach(function (cat) {
+        var step = document.createElement('div');
+        step.className = 'step items';
+        step.style.marginTop = '40px';
+        var h = document.createElement('h2'); h.textContent = cat.title;
+        var p = document.createElement('p'); p.className = 'hint'; p.style.fontSize = '16.5px'; p.textContent = cat.text;
+        step.appendChild(h); step.appendChild(p);
+        var list = document.createElement('div');
+        ((col.items[r] || {})[cat.id] || []).forEach(function (it) {
+          var row = document.createElement('div');
+          row.className = 'it';
+          if (it.images && it.images.length) {
+            row.className = 'it has-gallery';
+            var gal = document.createElement('div'); gal.className = 'gallery';
+            it.images.forEach(function (src, n) {
+              var im = document.createElement('img');
+              im.src = src; im.alt = n === 0 ? it.title : it.title + ' (photo ' + (n + 1) + ')';
+              im.loading = 'lazy';
+              im.addEventListener('error', function () {
+                im.remove();
+                if (!gal.children.length) { gal.remove(); row.className = 'it'; }
+              });
+              gal.appendChild(im);
+            });
+            row.appendChild(gal);
+          }
+          var left = document.createElement('div');
+          var ih = document.createElement('h3'); ih.textContent = it.title;
+          var ip = document.createElement('p'); ip.textContent = it.text;
+          left.appendChild(ih); left.appendChild(ip);
+          if (it.shop) {
+            var s = document.createElement('div'); s.className = 'item-shop'; s.textContent = it.shop; left.appendChild(s);
+          }
+          if (it.images && it.images.length && it.url) {
+            var act = document.createElement('div'); act.className = 'item-act';
+            act.appendChild(externalLink('View on ' + (it.shop ? it.shop.split(' ')[0] : 'the store'), it.url, 'btn btn-small'));
+            left.appendChild(act);
+            row.appendChild(left);
+          } else {
+            row.appendChild(left);
+            if (it.url) { row.appendChild(externalLink('View', it.url, 'item-link')); }
+          }
+          list.appendChild(row);
+        });
+        if (cat.browse && cat.browse.url) {
+          var br = document.createElement('div');
+          br.className = 'it';
+          var spacer = document.createElement('div');
+          var bp = document.createElement('p'); bp.textContent = 'Handmade options from independent sellers on Etsy. Shipping to ' + REGIONS[r] + ' depends on the seller.';
+          spacer.appendChild(bp);
+          br.appendChild(spacer);
+          br.appendChild(externalLink(cat.browse.label, cat.browse.url, 'item-link'));
+          list.appendChild(br);
+        }
+        step.appendChild(list);
+        catsBox.appendChild(step);
+      });
+    }
+
+    if (regionSelect) {
+      regionSelect.value = r;
+      regionSelect.addEventListener('change', function () {
+        if (REGIONS[regionSelect.value]) { r = regionSelect.value; saveRegion(r); render(); }
+      });
+    }
+    if (r) { saveRegion(r); }
+    render();
   }
 })();
