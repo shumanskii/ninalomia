@@ -94,7 +94,6 @@
         fd.append('COUNTRY', sel.options[sel.selectedIndex].text);
         fd.append('REGION', region);
         fd.append('MATERIAL', m);
-        fd.append('MARKETING', (access.elements.MARKETING && access.elements.MARKETING.checked) ? 'yes' : 'no');
         try { fetch(C.formEndpoint, { method: 'POST', mode: 'no-cors', body: fd }).then(go, go); } catch (err) { go(); }
         setTimeout(go, 4000);
       } else {
