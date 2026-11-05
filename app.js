@@ -46,8 +46,8 @@
   var access = $('[data-access]');
   if (access) {
     var MATERIALS = {
-      mom: { eyebrow: 'For mothers', title: 'Phrases you shouldn’t say to your adult daughter', lead: 'A short list of words that make a daughter go quiet or feel hurt, and what you can say instead.', btn: 'Get the material' },
-      daughter: { eyebrow: 'For daughters', title: 'Phrases that help you stand your ground with Mom', lead: 'Ready-made replies to guilt, criticism, and unsolicited advice, so you don’t have to justify yourself or end up in a fight.', btn: 'Get the material' },
+      mom: { eyebrow: 'For mothers', title: 'Phrases you shouldn’t say to your adult daughter', lead: 'Sometimes, even well-intentioned words can push your daughter further away. Discover which phrases may hurt your relationship, and what you can say instead to open the door to a better conversation.', btn: 'Get the free guide', cover: 'img/cover-mom.jpg' },
+      daughter: { eyebrow: 'For daughters', title: 'Phrases that help you stand your ground with Mom', lead: 'When Mom criticizes you, makes you feel guilty, or won’t take no for an answer, you don’t have to keep defending yourself. Discover the words that set boundaries, without another painful argument.', btn: 'Get the free guide', cover: 'img/cover-daughter.jpg' },
       kopilka: { eyebrow: 'Nina’s Holiday Gift Guide', title: 'Gifts you can order in your country', lead: 'Stores and delivery differ from country to country. Tell us where you live and we’ll show a selection just for you.', btn: 'Open the gift guide' }
     };
     var m = param('m');
@@ -58,6 +58,12 @@
     $('[data-access-lead]').textContent = info.lead;
     var btn = $('button[type="submit"]', access);
     btn.textContent = info.btn;
+    var coverEl = $('[data-cover]');
+    if (coverEl && info.cover) {
+      coverEl.addEventListener('load', function () { coverEl.hidden = false; });
+      coverEl.setAttribute('alt', 'Cover of the guide: ' + info.title);
+      coverEl.src = info.cover;
+    }
     var sel = $('#acc-country');
     var email = $('#acc-email');
     var note = $('.form-note', access);
@@ -86,6 +92,7 @@
         fd.append('COUNTRY', sel.options[sel.selectedIndex].text);
         fd.append('REGION', region);
         fd.append('MATERIAL', m);
+        fd.append('MARKETING', (access.elements.MARKETING && access.elements.MARKETING.checked) ? 'yes' : 'no');
         try { fetch(C.formEndpoint, { method: 'POST', mode: 'no-cors', body: fd }).then(go, go); } catch (err) { go(); }
         setTimeout(go, 4000);
       } else {
@@ -141,7 +148,6 @@
       col.categories.forEach(function (cat) {
         var step = document.createElement('div');
         step.className = 'step items';
-        step.style.marginTop = '40px';
         var h = document.createElement('h2'); h.textContent = cat.title;
         var p = document.createElement('p'); p.className = 'hint'; p.style.fontSize = '16.5px'; p.textContent = cat.text;
         step.appendChild(h); step.appendChild(p);

@@ -22,12 +22,14 @@
     <a class="menu" href="index.html">← Back to home</a>
   </header>
 </div>
-<main class="narrow">
+<main class="narrow compact">
   <div class="intro">
     <div class="eyebrow" data-access-eyebrow></div>
     <h1 data-access-title></h1>
     <p data-access-lead></p>
   </div>
+  <div class="access-wrap">
+    <img class="access-cover" data-cover alt="" width="180" height="240" hidden>
   <form class="access step" data-access novalidate>
     <div class="field single">
       <label for="acc-country">Country</label>
@@ -46,10 +48,12 @@
       <label for="acc-email">Email</label>
       <input id="acc-email" name="EMAIL" type="email" placeholder="you@example.com" autocomplete="email" required>
     </div>
+    <label class="check"><input type="checkbox" name="MARKETING" value="yes"><span>I&rsquo;d also like to receive occasional tips, free resources, and updates from Nina Lomia. I can unsubscribe at any time.</span></label>
     <button class="btn" type="submit">Continue</button>
     <p class="form-note" role="status" hidden></p>
-    <p class="consent">By clicking the button, you agree to receive emails from Nina Lomia. You can unsubscribe at any time.</p>
+    <p class="consent">We&rsquo;ll use your email to send you the guide. Read our <a href="privacy.html">Privacy Policy</a> for details.</p>
   </form>
+  </div>
 </main>
 <div class="wrap">
   <footer class="foot" style="padding-top:32px">

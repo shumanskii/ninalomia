@@ -221,3 +221,21 @@ h2 { margin: 0; font-size: 34px; line-height: 1.25; font-weight: 500; letter-spa
 .dlg-opt { font: inherit; font-size: 16px; font-weight: 500; text-align: left; padding: 14px 20px; border-radius: 999px; border: 1.5px solid #D9CCBB; background: transparent; color: var(--ink); cursor: pointer; }
 .dlg-opt:hover, .dlg-opt:focus-visible { border-color: var(--accent); background: var(--sel); }
 .dlg-skip { font: inherit; font-size: 14px; color: var(--soft); background: none; border: 0; padding: 8px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; align-self: center; }
+
+/* access page: compact form, optional cover */
+.narrow.compact { gap: 28px; padding-top: 64px; }
+.access-wrap { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 28px 48px; }
+.access-wrap .access { flex: 1 1 340px; min-width: 0; gap: 16px; padding-top: 28px; }
+.access-cover { order: 2; flex: 0 0 180px; width: 180px; height: auto; border-radius: 12px; border: 1px solid var(--line); margin-top: 28px; }
+.access-cover[hidden] { display: none; }
+.check { display: flex; gap: 12px; align-items: flex-start; max-width: 460px; font-size: 14px; line-height: 1.5; color: var(--muted); cursor: pointer; }
+.check input { flex: 0 0 18px; width: 18px; height: 18px; margin-top: 2px; accent-color: var(--accent); }
+.consent a { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 720px) { .narrow.compact { padding-top: 40px; gap: 20px; } .access-cover { order: -1; flex-basis: 120px; width: 120px; margin-top: 0; } }
+.access .field { flex: none; }
+
+/* collection page: tighter spacing */
+.compact .intro { gap: 14px; }
+.compact .step { gap: 12px; padding-top: 28px; }
+.compact .items .it { padding: 16px 0; }
+.compact .items > .hint { margin-top: 0; }
