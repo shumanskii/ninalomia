@@ -131,7 +131,13 @@
 
     function render() {
       catsBox.textContent = '';
-      if (!r) { return; }
+      var eff = r || 'other';
+      if (!r) {
+        var gn = document.createElement('p');
+        gn.className = 'hint'; gn.style.marginTop = '8px';
+        gn.textContent = 'Showing gifts that ship to most countries. Choose your country above for a better match.';
+        catsBox.appendChild(gn);
+      }
       col.categories.forEach(function (cat) {
         var step = document.createElement('div');
         step.className = 'step items';
@@ -140,7 +146,17 @@
         var p = document.createElement('p'); p.className = 'hint'; p.style.fontSize = '16.5px'; p.textContent = cat.text;
         step.appendChild(h); step.appendChild(p);
         var list = document.createElement('div');
-        ((col.items[r] || {})[cat.id] || []).forEach(function (it) {
+        var list_items = (col.items[eff] || {})[cat.id] || [];
+        if (!list_items.length && eff !== 'other') {
+          list_items = (col.items.other || {})[cat.id] || [];
+          if (list_items.length) {
+            var fb = document.createElement('p');
+            fb.className = 'hint';
+            fb.textContent = 'We are still choosing picks for ' + REGIONS[eff] + '. Here are options that ship to most countries.';
+            step.appendChild(fb);
+          }
+        }
+        list_items.forEach(function (it) {
           var row = document.createElement('div');
           row.className = 'it';
           if (it.images && it.images.length) {
@@ -180,7 +196,7 @@
           var br = document.createElement('div');
           br.className = 'it';
           var spacer = document.createElement('div');
-          var bp = document.createElement('p'); bp.textContent = 'Handmade options from independent sellers on Etsy. Shipping to ' + REGIONS[r] + ' depends on the seller.';
+          var bp = document.createElement('p'); bp.textContent = 'Handmade options from independent sellers on Etsy. Shipping to ' + (r ? REGIONS[r] : 'your country') + ' depends on the seller.';
           spacer.appendChild(bp);
           br.appendChild(spacer);
           br.appendChild(externalLink(cat.browse.label, cat.browse.url, 'item-link'));
@@ -199,5 +215,50 @@
     }
     if (r) { saveRegion(r); }
     render();
+
+    /* First visit: ask for the country in a small dialog. Skipping is fine. */
+    function seenDialog() { try { return sessionStorage.getItem('nina_dialog') === '1'; } catch (e) { return false; } }
+    function markDialog() { try { sessionStorage.setItem('nina_dialog', '1'); } catch (e) {} }
+    if (!r && !seenDialog()) {
+      var lastFocus = document.activeElement;
+      var overlay = document.createElement('div');
+      overlay.className = 'dlg-overlay';
+      var box = document.createElement('div');
+      box.className = 'dlg';
+      box.setAttribute('role', 'dialog');
+      box.setAttribute('aria-modal', 'true');
+      box.setAttribute('aria-labelledby', 'dlg-title');
+      var t = document.createElement('h2'); t.id = 'dlg-title'; t.textContent = 'Choose your region';
+      var tp = document.createElement('p'); tp.textContent = 'Each region has its own selection of gifts. Pick yours to see it.';
+      box.appendChild(t); box.appendChild(tp);
+      var opts = document.createElement('div'); opts.className = 'dlg-opts';
+      function closeDialog() {
+        markDialog();
+        document.removeEventListener('keydown', onKey);
+        overlay.remove();
+        if (lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch (e) {} }
+      }
+      function onKey(e) { if (e.key === 'Escape') { closeDialog(); } }
+      Object.keys(REGIONS).forEach(function (key) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'dlg-opt'; b.textContent = REGIONS[key];
+        b.addEventListener('click', function () {
+          r = key; saveRegion(r);
+          if (regionSelect) { regionSelect.value = r; }
+          render(); closeDialog();
+        });
+        opts.appendChild(b);
+      });
+      box.appendChild(opts);
+      var skip = document.createElement('button');
+      skip.type = 'button'; skip.className = 'dlg-skip'; skip.textContent = 'Skip for now';
+      skip.addEventListener('click', closeDialog);
+      box.appendChild(skip);
+      overlay.appendChild(box);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) { closeDialog(); } });
+      document.addEventListener('keydown', onKey);
+      document.body.appendChild(overlay);
+      var first = opts.querySelector('button'); if (first) { first.focus(); }
+    }
   }
 })();

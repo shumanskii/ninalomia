@@ -53,9 +53,9 @@
     url: 'https://www.etsy.com/listing/4386310182'
   };
   items.us.journals.push(withUrl(momsStory, 'https://www.amazon.com/dp/1950968871'));
-  items.uk.journals.push(withUrl(momsStory, 'https://www.amazon.co.uk/s?k=9781950968879'));
-  items.eu.journals.push(withUrl(momsStory, 'https://www.amazon.de/s?k=9781950968879'));
-  items.oceania.journals.push(withUrl(momsStory, 'https://www.amazon.com.au/s?k=9781950968879'));
+  items.uk.journals.push(withUrl(momsStory, 'https://www.amazon.co.uk/dp/1950968871'));
+  items.eu.journals.push(withUrl(momsStory, 'https://www.amazon.de/dp/1950968871'));
+  items.oceania.journals.push(withUrl(momsStory, 'https://www.amazon.com.au/dp/1950968871'));
   items.other.journals.push(withUrl(momsStory, 'https://www.amazon.com/dp/1950968871'));
   /* Added later: mukawa (US and other) and orb (all regions). */
   window.COLLECTION = { categories: categories, items: items };
