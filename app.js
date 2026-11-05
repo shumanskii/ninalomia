@@ -46,8 +46,8 @@
   var access = $('[data-access]');
   if (access) {
     var MATERIALS = {
-      mom: { eyebrow: 'For mothers', title: 'Phrases you shouldn’t say to your adult daughter', lead: 'Sometimes, even well-intentioned words can push your daughter further away. Discover which phrases may hurt your relationship, and what you can say instead to open the door to a better conversation.', btn: 'Get the free guide', cover: 'img/cover-mom.jpg' },
-      daughter: { eyebrow: 'For daughters', title: 'Phrases that help you stand your ground with Mom', lead: 'When Mom criticizes you, makes you feel guilty, or won’t take no for an answer, you don’t have to keep defending yourself. Discover the words that set boundaries, without another painful argument.', btn: 'Get the free guide', cover: 'img/cover-daughter.jpg' },
+      mom: { eyebrow: 'For mothers', title: 'Phrases you shouldn’t say to your adult daughter', lead: 'Sometimes, even well-intentioned words can push your daughter further away. Discover which phrases may hurt your relationship, and what you can say instead to open the door to a better conversation.', btn: 'Get the free guide', perks: 'Free PDF · Real examples · What to say instead', cover: 'img/cover-mom.jpg' },
+      daughter: { eyebrow: 'For daughters', title: 'Phrases that help you stand your ground with Mom', lead: 'When Mom criticizes you, makes you feel guilty, or won’t take no for an answer, you don’t have to keep defending yourself. Discover the words that set boundaries, without another painful argument.', btn: 'Get the free guide', perks: 'Free PDF · Ready-made replies · Calm, clear boundaries', cover: 'img/cover-daughter.jpg' },
       kopilka: { eyebrow: 'Nina’s Holiday Gift Guide', title: 'Gifts you can order in your country', lead: 'Stores and delivery differ from country to country. Tell us where you live and we’ll show a selection just for you.', btn: 'Open the gift guide' }
     };
     var m = param('m');
@@ -56,6 +56,8 @@
     $('[data-access-eyebrow]').textContent = info.eyebrow;
     $('[data-access-title]').textContent = info.title;
     $('[data-access-lead]').textContent = info.lead;
+    var perksEl = $('[data-access-perks]');
+    if (perksEl) { if (info.perks) { perksEl.textContent = info.perks; } else { perksEl.hidden = true; } }
     var btn = $('button[type="submit"]', access);
     btn.textContent = info.btn;
     var coverEl = $('[data-cover]');
@@ -136,6 +138,12 @@
       return a;
     }
 
+    var ICONS = {
+      journals: '<svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 10h30a6 6 0 0 1 6 6v38H20a6 6 0 0 1-6-6z"/><path d="M14 48a6 6 0 0 1 6-6h30"/><path d="M26 22h16M26 30h10"/></svg>',
+      ornaments: '<svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M32 6v8"/><path d="M27 14h10v5H27z"/><circle cx="32" cy="38" r="19"/><path d="M20 34c5 4 19 4 24 0"/></svg>',
+      gift: '<svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="26" width="44" height="28" rx="3"/><path d="M8 18h48v8H8zM32 18v36"/><path d="M32 18c-4-8-14-8-14-2s10 2 14 2zM32 18c4-8 14-8 14-2s-10 2-14 2z"/></svg>'
+    };
+
     function render() {
       catsBox.textContent = '';
       var eff = r || 'other';
@@ -162,42 +170,54 @@
             step.appendChild(fb);
           }
         }
+        var grid = document.createElement('div');
+        grid.className = 'cards';
         list_items.forEach(function (it) {
-          var row = document.createElement('div');
-          row.className = 'it';
-          if (it.images && it.images.length) {
-            row.className = 'it has-gallery';
-            var gal = document.createElement('div'); gal.className = 'gallery';
-            it.images.forEach(function (src, n) {
+          var card = document.createElement('article');
+          card.className = 'pcard';
+          var media = document.createElement('div');
+          media.className = 'pmedia';
+          function placeholder() {
+            media.textContent = '';
+            media.className = 'pmedia ph';
+            media.innerHTML = ICONS[cat.id] || ICONS.gift;
+          }
+          var imgs = it.images || [];
+          if (imgs.length) {
+            var strip = document.createElement('div'); strip.className = 'pstrip';
+            imgs.forEach(function (src, n) {
               var im = document.createElement('img');
               im.src = src; im.alt = n === 0 ? it.title : it.title + ' (photo ' + (n + 1) + ')';
               im.loading = 'lazy';
               im.addEventListener('error', function () {
                 im.remove();
-                if (!gal.children.length) { gal.remove(); row.className = 'it'; }
+                if (!strip.children.length) { placeholder(); }
               });
-              gal.appendChild(im);
+              strip.appendChild(im);
             });
-            row.appendChild(gal);
+            media.appendChild(strip);
+            if (imgs.length > 1) {
+              var dots = document.createElement('div'); dots.className = 'pdots';
+              imgs.forEach(function (_, n) { var d = document.createElement('span'); if (!n) { d.className = 'on'; } dots.appendChild(d); });
+              media.appendChild(dots);
+              strip.addEventListener('scroll', function () {
+                var idx = Math.round(strip.scrollLeft / strip.clientWidth);
+                Array.prototype.forEach.call(dots.children, function (d, n) { d.className = n === idx ? 'on' : ''; });
+              });
+            }
+          } else { placeholder(); }
+          card.appendChild(media);
+          var body = document.createElement('div'); body.className = 'pbody';
+          if (it.shop) { var s = document.createElement('div'); s.className = 'item-shop'; s.textContent = it.shop; body.appendChild(s); }
+          var ih = document.createElement('h3'); ih.textContent = it.title; body.appendChild(ih);
+          var ip = document.createElement('p'); ip.textContent = it.text; body.appendChild(ip);
+          if (it.url) {
+            body.appendChild(externalLink('View on ' + (it.shop ? it.shop.split(' ')[0] : 'the store'), it.url, 'btn btn-small'));
           }
-          var left = document.createElement('div');
-          var ih = document.createElement('h3'); ih.textContent = it.title;
-          var ip = document.createElement('p'); ip.textContent = it.text;
-          left.appendChild(ih); left.appendChild(ip);
-          if (it.shop) {
-            var s = document.createElement('div'); s.className = 'item-shop'; s.textContent = it.shop; left.appendChild(s);
-          }
-          if (it.images && it.images.length && it.url) {
-            var act = document.createElement('div'); act.className = 'item-act';
-            act.appendChild(externalLink('View on ' + (it.shop ? it.shop.split(' ')[0] : 'the store'), it.url, 'btn btn-small'));
-            left.appendChild(act);
-            row.appendChild(left);
-          } else {
-            row.appendChild(left);
-            if (it.url) { row.appendChild(externalLink('View', it.url, 'item-link')); }
-          }
-          list.appendChild(row);
+          card.appendChild(body);
+          grid.appendChild(card);
         });
+        if (grid.children.length) { list.appendChild(grid); }
         if (cat.browse && cat.browse.url) {
           var br = document.createElement('div');
           br.className = 'it';
