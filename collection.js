@@ -44,7 +44,7 @@
     title: 'Mom, Tell Me Your Story: Guided Memory Journal',
     text: '147 thoughtful prompts and room for photos and handwriting, in a deep green hardcover she will want to keep.',
     shop: 'Amazon',
-    url: 'https://www.amazon.com/dp/B0H2YTJPQ5'
+    url: 'https://www.amazon.com/dp/B0H2YTJPQ5?tag=ninalomia-20'
   };
   var orb = {
     title: 'Custom Glass Video Globe: Playable Memory Orb',
@@ -52,11 +52,11 @@
     shop: 'Etsy \u00b7 ManicuredCrafts',
     url: 'https://www.etsy.com/listing/4386310182'
   };
-  items.us.journals.push(withUrl(momsStory, 'https://www.amazon.com/dp/1950968871'));
+  items.us.journals.push(withUrl(momsStory, 'https://www.amazon.com/dp/1950968871?tag=ninalomia-20'));
   items.uk.journals.push(withUrl(momsStory, 'https://www.amazon.co.uk/dp/1950968871'));
   items.eu.journals.push(withUrl(momsStory, 'https://www.amazon.de/dp/1950968871'));
   items.oceania.journals.push(withUrl(momsStory, 'https://www.amazon.com.au/dp/1950968871'));
-  items.other.journals.push(withUrl(momsStory, 'https://www.amazon.com/dp/1950968871'));
+  items.other.journals.push(withUrl(momsStory, 'https://www.amazon.com/dp/1950968871?tag=ninalomia-20'));
   /* Added later: mukawa (US and other) and orb (all regions). */
   window.COLLECTION = { categories: categories, items: items };
 })();
