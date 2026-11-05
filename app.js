@@ -4,14 +4,12 @@
     us: 'USA and Canada',
     uk: 'United Kingdom and Ireland',
     eu: 'Europe',
-    oceania: 'Australia and New Zealand',
     other: 'Other countries'
   };
   var SHOPS = {
     us: 'Amazon, Etsy, Bookshop.org',
     uk: 'Amazon UK, Etsy, Bookshop.org',
     eu: 'Amazon, Etsy and local stores',
-    oceania: 'Amazon Australia, Etsy',
     other: 'stores that deliver to your country'
   };
   function $(s, r) { return (r || document).querySelector(s); }
@@ -22,7 +20,7 @@
     return m ? decodeURIComponent(m[1]) : '';
   }
   function saveRegion(r) { try { localStorage.setItem('nina_region', r); } catch (e) {} }
-  function loadRegion() { try { return localStorage.getItem('nina_region') || ''; } catch (e) { return ''; } }
+  function loadRegion() { try { var r = localStorage.getItem('nina_region') || ''; return r === 'oceania' ? 'other' : r; } catch (e) { return ''; } }
 
   /* Social links */
   $$('[data-social]').forEach(function (a) {
@@ -179,7 +177,8 @@
           function placeholder() {
             media.textContent = '';
             media.className = 'pmedia ph';
-            media.innerHTML = ICONS[cat.id] || ICONS.gift;
+            var PH_LABEL = { journals: 'Memory journal', ornaments: 'Keepsake ornament' };
+            media.innerHTML = (ICONS[cat.id] || ICONS.gift) + '<span class="pph-label">' + (PH_LABEL[cat.id] || 'Gift idea') + '</span>';
           }
           var imgs = it.images || [];
           if (imgs.length) {

@@ -3,12 +3,12 @@
    CATEGORIES: id, title, text, browse (link "Browse on Etsy" that is always shown;
    later replace its url with your Etsy affiliate link).
 
-   ITEMS: for each region (us, uk, eu, oceania, other) and category id, add 2-4 products:
+   ITEMS: for each region (us, uk, eu, other) and category id, add 2-4 products:
      { title: 'Product name', text: 'One line on why it is a good gift', shop: 'Etsy', url: 'https://...' }
    While a category has no items, only the "Browse on Etsy" link is shown.
 
    Regions: us (USA and Canada), uk (United Kingdom and Ireland), eu (Europe),
-   oceania (Australia and New Zealand), other (other countries). */
+   other (all other countries, including Australia and New Zealand). */
 (function () {
   var categories = [
     {
@@ -24,20 +24,20 @@
       browse: { label: 'Browse personalized ornaments on Etsy', url: 'https://www.etsy.com/search?q=personalized%20family%20christmas%20ornament' }
     }
   ];
-  var regions = ['us', 'uk', 'eu', 'oceania', 'other'];
+  var regions = ['us', 'uk', 'eu', 'other'];
   var items = {};
   regions.forEach(function (r) {
     items[r] = {};
     categories.forEach(function (c) { items[r][c.id] = []; });
   });
-  /* Gifts shown on the page. Amazon links for the UK, Europe and Australia are ISBN
+  /* Gifts shown on the page. Amazon links for the UK and Europe are ISBN
      searches, so they always open the right book on the local store.
      When your Amazon Associates tag is ready, add ?tag=YOUR-TAG to the Amazon links. */
   var momsStory = {
     title: 'Mom\u2019s Story: A Memory and Keepsake Journal',
-    text: 'A linen hardcover with gold foil and lay-flat pages, with gentle prompts about childhood, family, love, and what she has learned.',
+    text: 'Over 90 gentle prompts, from early childhood to words of wisdom, so Mom can tell her story in her own handwriting. Linen hardcover with gold foil, lay-flat pages, and room for photos.',
     shop: 'Amazon',
-    images: ['img/gifts/moms-story-1.jpg', 'img/gifts/moms-story-2.jpg', 'img/gifts/moms-story-3.jpg']
+    images: ['img/moms-story-1.jpg', 'img/moms-story-2.jpg', 'img/moms-story-3.jpg']
   };
   function withUrl(base, url) { var o = {}; for (var k in base) { o[k] = base[k]; } o.url = url; return o; }
   var mukawa = {
@@ -53,9 +53,8 @@
     url: 'https://www.etsy.com/listing/4386310182'
   };
   items.us.journals.push(withUrl(momsStory, 'https://www.amazon.com/dp/1950968871?tag=ninalomia-20'));
-  items.uk.journals.push(withUrl(momsStory, 'https://www.amazon.co.uk/dp/1950968871'));
-  items.eu.journals.push(withUrl(momsStory, 'https://www.amazon.de/dp/1950968871'));
-  items.oceania.journals.push(withUrl(momsStory, 'https://www.amazon.com.au/dp/1950968871'));
+  items.uk.journals.push(withUrl(momsStory, 'https://www.amazon.co.uk/dp/1950968871?tag=ninalomia02-21'));
+  items.eu.journals.push(withUrl(momsStory, 'https://www.amazon.de/dp/1950968871?tag=ninalomia-21'));
   items.other.journals.push(withUrl(momsStory, 'https://www.amazon.com/dp/1950968871?tag=ninalomia-20'));
   /* Added later: mukawa (US and other) and orb (all regions). */
   window.COLLECTION = { categories: categories, items: items };
