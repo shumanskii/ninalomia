@@ -28,6 +28,12 @@
       title: 'Photo Collages for Mom',
       text: 'Your favorite photos arranged into one print she can frame: a gift that says what you do not always find the words for.',
       browse: { label: 'Browse photo collages on Etsy', url: 'https://www.etsy.com/search?q=mom%20photo%20collage' }
+    },
+    {
+      id: 'jewelry',
+      title: 'Photo Jewelry & Lockets',
+      text: 'A small locket with a photo inside: something she can wear close to her every day.',
+      browse: { label: 'Browse photo lockets on Etsy', url: 'https://www.etsy.com/search?q=photo%20locket%20bracelet%20for%20mom' }
     }
   ];
   var regions = ['us', 'uk', 'eu', 'other'];
@@ -115,5 +121,21 @@
     url: 'https://www.etsy.com/listing/1217312865'
   };
   regions.forEach(function (r) { items[r].collages.push(mamaCollage); });
+  var locket = {
+    title: 'Custom Heart Locket Bracelet with Photo',
+    text: 'A heart locket on an adjustable chain that holds a photo and opens like a tiny book. Made to order in the UK, so order early for Christmas. Orders to the EU and US may be subject to customs fees.',
+    shop: 'Etsy \u00b7 Sellbyhope',
+    images: ['img/jewelry-1.jpg'],
+    url: 'https://www.etsy.com/listing/4559357105'
+  };
+  regions.forEach(function (r) { items[r].jewelry.push(locket); });
+  var ring = {
+    title: 'Personalized Photo Locket Ring',
+    text: 'A small heart locket ring that opens to a hidden photo and a short message. Made to order in the UK, so order early for Christmas. Orders to the EU may be subject to customs fees.',
+    shop: 'Etsy \u00b7 Sellbyhope',
+    images: ['img/jewelry-2.jpg'],
+    url: 'https://www.etsy.com/listing/4586305001'
+  };
+  regions.forEach(function (r) { items[r].jewelry.push(ring); }); /* country list checked Nov 6, 2026: ships worldwide; free to the US */
   window.COLLECTION = { categories: categories, items: items };
 })();
