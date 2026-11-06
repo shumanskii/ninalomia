@@ -196,12 +196,25 @@
             media.appendChild(strip);
             if (imgs.length > 1) {
               var dots = document.createElement('div'); dots.className = 'pdots';
-              imgs.forEach(function (_, n) { var d = document.createElement('span'); if (!n) { d.className = 'on'; } dots.appendChild(d); });
+              imgs.forEach(function (_, n) {
+                var d = document.createElement('button'); d.type = 'button'; d.setAttribute('aria-label', 'Photo ' + (n + 1));
+                if (!n) { d.className = 'on'; }
+                d.addEventListener('click', function () { strip.scrollTo({ left: n * strip.clientWidth, behavior: 'smooth' }); });
+                dots.appendChild(d);
+              });
               media.appendChild(dots);
-              strip.addEventListener('scroll', function () {
+              var prevB = document.createElement('button'); prevB.type = 'button'; prevB.className = 'pnav prev'; prevB.setAttribute('aria-label', 'Previous photo'); prevB.innerHTML = '&#8249;';
+              var nextB = document.createElement('button'); nextB.type = 'button'; nextB.className = 'pnav next'; nextB.setAttribute('aria-label', 'Next photo'); nextB.innerHTML = '&#8250;';
+              prevB.addEventListener('click', function () { strip.scrollBy({ left: -strip.clientWidth, behavior: 'smooth' }); });
+              nextB.addEventListener('click', function () { strip.scrollBy({ left: strip.clientWidth, behavior: 'smooth' }); });
+              media.appendChild(prevB); media.appendChild(nextB);
+              function sync() {
                 var idx = Math.round(strip.scrollLeft / strip.clientWidth);
                 Array.prototype.forEach.call(dots.children, function (d, n) { d.className = n === idx ? 'on' : ''; });
-              });
+                prevB.hidden = idx <= 0; nextB.hidden = idx >= imgs.length - 1;
+              }
+              strip.addEventListener('scroll', sync);
+              sync();
             }
           } else { placeholder(); }
           card.appendChild(media);
