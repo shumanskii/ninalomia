@@ -19,9 +19,15 @@
     },
     {
       id: 'ornaments',
-      title: 'Personalized Christmas Ornaments',
-      text: 'Keepsake ornaments with a name, a photo, or even a short family video: small things that come back out of the box every year.',
-      browse: { label: 'Browse personalized ornaments on Etsy', url: 'https://www.etsy.com/search?q=personalized%20family%20christmas%20ornament' }
+      title: 'Family Photo Ornaments',
+      text: 'A favorite family photo on a keepsake ornament: small things that come back out of the box every year.',
+      browse: { label: 'Browse photo ornaments on Etsy', url: 'https://www.etsy.com/search?q=family%20photo%20christmas%20ornament' }
+    },
+    {
+      id: 'collages',
+      title: 'Photo Collages for Mom',
+      text: 'Your favorite photos arranged into one print she can frame: a gift that says what you do not always find the words for.',
+      browse: { label: 'Browse photo collages on Etsy', url: 'https://www.etsy.com/search?q=mom%20photo%20collage' }
     }
   ];
   var regions = ['us', 'uk', 'eu', 'other'];
@@ -83,5 +89,31 @@
   items.other.journals.push(withUrl(leather, 'https://www.amazon.com/dp/B0FT9XV51R?tag=ninalomia-20'));
   /* Europe: the same book on amazon.de costs about 2.4x more and has only 20 reviews (checked Nov 5, 2026), so not shown there.
      Not used for now: mukawa (US only, unavailable on amazon.de and amazon.co.uk) and orb. */
+  var photoBall = {
+    title: 'Custom Round Christmas Ball Ornament with Your Photo',
+    text: 'A ceramic ball with your favorite family photo on the front, plus optional text. Upload the photo when you order and choose a tree or bells design for the back.',
+    shop: 'Etsy \u00b7 WhiskerwishesUSA',
+    images: ['img/ball-1.jpg'],
+    url: 'https://www.etsy.com/listing/1803363186'
+  };
+  var clearBall = {
+    title: 'Custom Photo Christmas Ball, Clear 8 cm (3.15 in)',
+    text: 'Your family photo cropped into a circle inside a clear ornament, with an optional LED light. Send the photo when you order. Ships from Germany, so no customs fees within Europe.',
+    shop: 'Etsy \u00b7 FirstBellStudio',
+    images: ['img/ball-2.jpg'],
+    url: 'https://www.etsy.com/listing/4604068356'
+  };
+  /* Europe and UK first: ships from Germany. Everywhere else the ceramic ball (ships from the US) goes first. */
+  items.eu.ornaments.push(clearBall, photoBall);
+  items.uk.ornaments.push(clearBall, photoBall);
+  items.us.ornaments.push(photoBall, clearBall);
+  items.other.ornaments.push(photoBall, clearBall);
+  var mamaCollage = {
+    title: 'Mama Photo Collage: Personalized Gift for Mom',
+    text: 'You send your photos, the seller designs the collage and sends a preview within 1\u20132 days, and changes are free. A digital file in 3 sizes that you print at home or at a print shop, so it reaches you anywhere.',
+    shop: 'Etsy \u00b7 KnSDesignsPH',
+    url: 'https://www.etsy.com/listing/1217312865'
+  };
+  regions.forEach(function (r) { items[r].collages.push(mamaCollage); });
   window.COLLECTION = { categories: categories, items: items };
 })();
