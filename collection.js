@@ -42,7 +42,7 @@
   function withUrl(base, url) { var o = {}; for (var k in base) { o[k] = base[k]; } o.url = url; return o; }
   var mukawa = {
     title: 'Mom, Tell Me Your Story: Guided Memory Journal',
-    text: '147 thoughtful prompts and room for photos and handwriting, in a deep green hardcover she will want to keep.',
+    text: '147 guided questions about childhood, family, love, and what she has learned, with room for her handwriting and her photos.',
     shop: 'Amazon',
     url: 'https://www.amazon.com/dp/B0H2YTJPQ5?tag=ninalomia-20'
   };
@@ -56,6 +56,32 @@
   items.uk.journals.push(withUrl(momsStory, 'https://www.amazon.co.uk/dp/1950968871?tag=ninalomia02-21'));
   items.eu.journals.push(withUrl(momsStory, 'https://www.amazon.de/dp/1950968871?tag=ninalomia-21'));
   items.other.journals.push(withUrl(momsStory, 'https://www.amazon.com/dp/1950968871?tag=ninalomia-20'));
-  /* Added later: mukawa (US and other) and orb (all regions). */
+  var hearYourStory = {
+    title: 'Mom, I Want to Hear Your Story',
+    text: 'Over 250 gentle questions that lead Mom from her childhood to the turning points of her life, in an easy fill-in layout.',
+    shop: 'Amazon',
+    images: ['img/hear-your-story-1.jpg', 'img/hear-your-story-2.jpg', 'img/hear-your-story-3.jpg', 'img/hear-your-story-4.jpg', 'img/hear-your-story-5.jpg']
+  };
+  var hearYourStoryUk = {
+    title: 'Mum, I Want to Hear Your Story',
+    text: hearYourStory.text,
+    shop: 'Amazon',
+    images: hearYourStory.images
+  };
+  items.us.journals.push(withUrl(hearYourStory, 'https://www.amazon.com/dp/146425141X?tag=ninalomia-20'));
+  items.uk.journals.push(withUrl(hearYourStoryUk, 'https://www.amazon.co.uk/dp/1464251258?tag=ninalomia02-21'));
+  items.eu.journals.push(withUrl(hearYourStoryUk, 'https://www.amazon.de/dp/1464251258?tag=ninalomia-21'));
+  items.other.journals.push(withUrl(hearYourStory, 'https://www.amazon.com/dp/146425141X?tag=ninalomia-20'));
+  var leather = {
+    title: 'Mom, Tell Me Your Story: A Guided Memory Journal',
+    text: 'Over 275 guided prompts in a beige hardcover with a magnetic closure, made for Mom to write her life story by hand.',
+    shop: 'Amazon',
+    images: ['img/mom-tell-me-1.jpg', 'img/mom-tell-me-2.jpg', 'img/mom-tell-me-3.jpg', 'img/mom-tell-me-4.jpg']
+  };
+  items.us.journals.push(withUrl(leather, 'https://www.amazon.com/dp/B0FT9XV51R?tag=ninalomia-20'));
+  items.uk.journals.push(withUrl(leather, 'https://www.amazon.co.uk/dp/B0FT9XV51R?tag=ninalomia02-21'));
+  items.other.journals.push(withUrl(leather, 'https://www.amazon.com/dp/B0FT9XV51R?tag=ninalomia-20'));
+  /* Europe: the same book on amazon.de costs about 2.4x more and has only 20 reviews (checked Nov 5, 2026), so not shown there.
+     Not used for now: mukawa (US only, unavailable on amazon.de and amazon.co.uk) and orb. */
   window.COLLECTION = { categories: categories, items: items };
 })();

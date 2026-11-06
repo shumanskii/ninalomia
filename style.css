@@ -254,14 +254,19 @@ h2 { margin: 0; font-size: 34px; line-height: 1.25; font-weight: 500; letter-spa
 .wide .intro { max-width: 760px; }
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; margin-top: 8px; }
 .pcard { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 24px; overflow: hidden; background: #FBF8F3; }
-.pmedia { position: relative; aspect-ratio: 4 / 3; background: var(--sel); }
-.pmedia.ph { display: flex; align-items: center; justify-content: center; color: #B79F86; background: linear-gradient(160deg, #F1E8DB, #E6D9C6); }
+.pmedia { position: relative; aspect-ratio: 4 / 5; background: var(--sel); }
+.pmedia.ph { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; aspect-ratio: 16 / 9; color: #A98B6D; background: linear-gradient(160deg, #F1E8DB, #E6D9C6); }
+.pph-label { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #8F7355; }
 .pstrip { display: flex; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .pstrip::-webkit-scrollbar { display: none; }
-.pstrip img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: start; }
+.pstrip img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; scroll-snap-align: start; }
 .pdots { position: absolute; left: 0; right: 0; bottom: 10px; display: flex; justify-content: center; gap: 6px; }
-.pdots span { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.6); box-shadow: 0 0 0 1px rgba(42,37,34,.15); }
-.pdots span.on { background: #fff; }
+.pdots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%; background: rgba(255,255,255,.6); box-shadow: 0 0 0 1px rgba(42,37,34,.15); cursor: pointer; }
+.pdots button.on { background: #fff; }
+.pnav { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; padding: 0 0 3px; border: 0; border-radius: 50%; background: rgba(251,248,243,.9); color: #2A2522; font-size: 22px; line-height: 1; cursor: pointer; box-shadow: 0 1px 4px rgba(42,37,34,.2); }
+.pnav.prev { left: 10px; }
+.pnav.next { right: 10px; }
+.pnav[hidden] { display: none; }
 .pbody { display: flex; flex-direction: column; gap: 8px; padding: 18px 20px 22px; flex: 1; }
 .pbody .item-shop { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--soft); }
 .items .pbody h3 { font-size: 20px; line-height: 1.3; }
