@@ -13,26 +13,30 @@
   var categories = [
     {
       id: 'journals',
-      title: 'Memory Journals for Mom',
-      text: 'Guided journals where a mother writes down her stories, her memories, and the things she never had time to say.',
+      eyebrow: 'To understand her',
+      title: 'Her story, in her own words',
+      text: 'Many of us never learned who our mother was before she became \u201cMom\u201d. A memory journal gives her a gentle way to tell her story, and gives you a reason to sit down and really listen.',
       browse: { label: 'Browse memory journals on Etsy', url: 'https://www.etsy.com/search?q=memory%20journal%20for%20mom' }
     },
     {
       id: 'ornaments',
-      title: 'Family Photo Ornaments',
-      text: 'A favorite family photo on a keepsake ornament: small things that come back out of the box every year.',
+      eyebrow: 'To start a new tradition',
+      title: 'A shared memory on the tree',
+      text: 'A photo of a warm moment, hung where you both will see it every Christmas. A quiet way to say: we have good days too, and I want more of them.',
       browse: { label: 'Browse photo ornaments on Etsy', url: 'https://www.etsy.com/search?q=family%20photo%20christmas%20ornament' }
     },
     {
       id: 'collages',
-      title: 'Photo Collages for Mom',
-      text: 'Your favorite photos arranged into one print she can frame: a gift that says what you do not always find the words for.',
+      eyebrow: 'To remember the good days',
+      title: 'Moments you shared, in one frame',
+      text: 'Choosing the photos is already a conversation. Put together the days you both remember warmly, and let her see that you remember them too.',
       browse: { label: 'Browse photo collages on Etsy', url: 'https://www.etsy.com/search?q=mom%20photo%20collage' }
     },
     {
       id: 'jewelry',
-      title: 'Photo Jewelry & Lockets',
-      text: 'A small locket with a photo inside: something she can wear close to her every day.',
+      eyebrow: 'To keep her close',
+      title: 'Something to wear close to the heart',
+      text: 'A locket holds a photo and a few words. A gentle gift for a mother or a daughter when it is hard to say it out loud.',
       browse: { label: 'Browse photo lockets on Etsy', url: 'https://www.etsy.com/search?q=photo%20locket%20bracelet%20for%20mom' }
     }
   ];
@@ -97,14 +101,14 @@
      Not used for now: mukawa (US only, unavailable on amazon.de and amazon.co.uk) and orb. */
   var photoBall = {
     title: 'Custom Round Christmas Ball Ornament with Your Photo',
-    text: 'A ceramic ball with your favorite family photo on the front, plus optional text. Upload the photo when you order and choose a tree or bells design for the back.',
+    text: 'A ceramic ball with a favorite photo on the front, plus optional text. Upload the photo when you order and choose a tree or bells design for the back.',
     shop: 'Etsy \u00b7 WhiskerwishesUSA',
     images: ['img/ball-1.jpg'],
     url: 'https://www.etsy.com/listing/1803363186'
   };
   var clearBall = {
     title: 'Custom Photo Christmas Ball, Clear 8 cm (3.15 in)',
-    text: 'Your family photo cropped into a circle inside a clear ornament, with an optional LED light. Send the photo when you order. Ships from Germany, so no customs fees within Europe.',
+    text: 'A photo of a warm moment, cropped into a circle inside a clear ornament, with an optional LED light. Send the photo when you order. Ships from Germany, so no customs fees within Europe.',
     shop: 'Etsy \u00b7 FirstBellStudio',
     images: ['img/ball-2.jpg'],
     url: 'https://www.etsy.com/listing/4604068356'
@@ -123,7 +127,7 @@
   regions.forEach(function (r) { items[r].collages.push(mamaCollage); });
   var locket = {
     title: 'Custom Heart Locket Bracelet with Photo',
-    text: 'A heart locket on an adjustable chain that holds a photo and opens like a tiny book. Made to order in the UK, so order early for Christmas. Orders to the EU and US may be subject to customs fees.',
+    text: 'A heart locket on an adjustable chain that holds a photo of the two of you and opens like a tiny book. Made to order in the UK, so order early for Christmas. Orders to the EU and US may be subject to customs fees.',
     shop: 'Etsy \u00b7 Sellbyhope',
     images: ['img/jewelry-1.jpg'],
     url: 'https://www.etsy.com/listing/4559357105'

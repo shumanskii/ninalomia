@@ -152,9 +152,10 @@
       }
       col.categories.forEach(function (cat) {
         var step = document.createElement('div');
-        step.className = 'step items';
+        step.className = 'step items kcat';
+        if (cat.eyebrow) { var eb = document.createElement('div'); eb.className = 'eyebrow'; eb.textContent = cat.eyebrow; step.appendChild(eb); }
         var h = document.createElement('h2'); h.textContent = cat.title;
-        var p = document.createElement('p'); p.className = 'hint'; p.style.fontSize = '16.5px'; p.textContent = cat.text;
+        var p = document.createElement('p'); p.className = 'kcat-text'; p.textContent = cat.text;
         step.appendChild(h); step.appendChild(p);
         var list = document.createElement('div');
         var list_items = (col.items[eff] || {})[cat.id] || [];
@@ -177,7 +178,7 @@
           function placeholder() {
             media.textContent = '';
             media.className = 'pmedia ph';
-            var PH_LABEL = { journals: 'Memory journal', ornaments: 'Keepsake ornament' };
+            var PH_LABEL = { journals: 'Memory journal', ornaments: 'Keepsake ornament', collages: 'Photo collage', jewelry: 'Photo locket' };
             media.innerHTML = (ICONS[cat.id] || ICONS.gift) + '<span class="pph-label">' + (PH_LABEL[cat.id] || 'Gift idea') + '</span>';
           }
           var imgs = it.images || [];
@@ -231,9 +232,9 @@
         if (grid.children.length) { list.appendChild(grid); }
         if (cat.browse && cat.browse.url) {
           var br = document.createElement('div');
-          br.className = 'it';
+          br.className = 'it kbrowse';
           var spacer = document.createElement('div');
-          var bp = document.createElement('p'); bp.textContent = 'Handmade options from independent sellers on Etsy. Shipping to ' + (r ? REGIONS[r] : 'your country') + ' depends on the seller.';
+          var bp = document.createElement('p'); bp.textContent = 'More handmade options from independent sellers on Etsy. Shipping to ' + (r ? REGIONS[r] : 'your country') + ' depends on the seller.';
           spacer.appendChild(bp);
           br.appendChild(spacer);
           br.appendChild(externalLink(cat.browse.label, cat.browse.url, 'item-link'));

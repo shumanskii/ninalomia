@@ -274,3 +274,16 @@ h2 { margin: 0; font-size: 34px; line-height: 1.25; font-weight: 500; letter-spa
 .pbody .btn-small { margin-top: auto; align-self: flex-start; }
 .pbody p { margin-bottom: 8px; }
 .cards { margin-bottom: 12px; }
+
+/* collection page: clear category blocks */
+.compact .kcat { gap: 14px; margin-top: 36px; padding-top: 48px; border-top: 2px solid var(--line); }
+.kcat .eyebrow { font-size: 13px; }
+.kcat h2 { font-size: 32px; line-height: 1.2; }
+.kcat .kcat-text { margin: 0; max-width: 640px; font-size: 17.5px; line-height: 1.55; color: var(--muted); }
+.kcat .cards { margin-top: 16px; }
+.kcat .pbody h3 { font-size: 21px; }
+.items.kcat .pbody p { font-size: 15.5px; color: var(--muted); }
+.items.kcat .it.kbrowse { border-top: 0; padding: 4px 0 0; gap: 6px 24px; }
+.kbrowse p { font-size: 14px; color: var(--soft); }
+.kbrowse .item-link { font-size: 14.5px; }
+@media (max-width: 720px) { .kcat h2 { font-size: 27px; } .compact .kcat { padding-top: 36px; } }
