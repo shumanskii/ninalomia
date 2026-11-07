@@ -26,18 +26,18 @@
       browse: { label: 'Browse photo ornaments on Etsy', url: 'https://www.etsy.com/search?q=family%20photo%20christmas%20ornament' }
     },
     {
-      id: 'collages',
-      eyebrow: 'To remember the good days',
-      title: 'Moments you shared, in one frame',
-      text: 'Choosing the photos is already a conversation. Put together the days you both remember warmly, and let her see that you remember them too.',
-      browse: { label: 'Browse photo collages on Etsy', url: 'https://www.etsy.com/search?q=mom%20photo%20collage' }
-    },
-    {
       id: 'jewelry',
       eyebrow: 'To keep her close',
       title: 'Something to wear close to the heart',
       text: 'A locket holds a photo and a few words. A gentle gift for a mother or a daughter when it is hard to say it out loud.',
       browse: { label: 'Browse photo lockets on Etsy', url: 'https://www.etsy.com/search?q=photo%20locket%20bracelet%20for%20mom' }
+    },
+    {
+      id: 'keychains',
+      eyebrow: 'To carry it with you',
+      title: 'A little album for her keys or bag',
+      text: 'A pocket-sized keepsake with the photos of the days you both remember warmly. Something she can carry everywhere, and open when she misses you.',
+      browse: { label: 'Browse photo keychains on Etsy', url: 'https://www.etsy.com/search?q=photo%20album%20keychain%20for%20mom' }
     }
   ];
   var regions = ['us', 'uk', 'eu', 'other'];
@@ -118,6 +118,7 @@
   items.uk.ornaments.push(clearBall, photoBall);
   items.us.ornaments.push(photoBall, clearBall);
   items.other.ornaments.push(photoBall, clearBall);
+  /* Photo collages: hidden for now. To bring it back, add a category with id 'collages' and re-add the card below.
   var mamaCollage = {
     title: 'Mama Photo Collage: Personalized Gift for Mom',
     text: 'You send your photos, the seller designs the collage and sends a preview within 1\u20132 days, and changes are free. A digital file in 3 sizes that you print at home or at a print shop, so it reaches you anywhere.',
@@ -125,6 +126,7 @@
     url: 'https://www.etsy.com/listing/1217312865'
   };
   regions.forEach(function (r) { items[r].collages.push(mamaCollage); });
+  */
   var locket = {
     title: 'Custom Heart Locket Bracelet with Photo',
     text: 'A heart locket on an adjustable chain that holds a photo of the two of you and opens like a tiny book. Made to order in the UK, so order early for Christmas. Orders to the EU and US may be subject to customs fees.',
@@ -141,5 +143,40 @@
     url: 'https://www.etsy.com/listing/4586305001'
   };
   regions.forEach(function (r) { items[r].jewelry.push(ring); }); /* country list checked Nov 6, 2026: ships worldwide; free to the US */
+  /* Photo keychains (checked Nov 7, 2026). Europe and UK: only sellers that ship from Europe.
+     US, Canada and other countries: only the two US sellers (Tolentinoshop, SugarMoon).
+     Photos: keychain-1 = 30SecondsToCraft, keychain-2 = MAXIGIFTstore, keychain-3 = Tolentinoshop, keychain-4 = SugarMoon. */
+  var kcMom = {
+    title: 'Leather Photo Keychain for Mom',
+    text: 'A leather keychain with a photo inside, made as a gift from a son or daughter to Mom. Handmade in Poland. Check delivery to your country on the Etsy page.',
+    shop: 'Etsy \u00b7 30SecondsToCraft',
+    images: ['img/keychain-1.jpg'],
+    url: 'https://www.etsy.com/listing/876202138'
+  };
+  var kcMaxi = {
+    title: 'Mini Photo Album Keychain',
+    text: 'A tiny leather photo album on a keyring, with your own photos inside. Ships from Poland to most of Europe and the UK, so no customs fees within Europe.',
+    shop: 'Etsy \u00b7 MAXIGIFTstore',
+    images: ['img/keychain-2.jpg'],
+    url: 'https://www.etsy.com/listing/1636205920'
+  };
+  var kcTolentino = {
+    title: 'Leather Mini Photo Album Keychain',
+    text: 'A pocket-sized leather photo album on a keyring, with your printed photos inside. Ships from the US.',
+    shop: 'Etsy \u00b7 TolentinoshopStore',
+    images: ['img/keychain-3.jpg'],
+    url: 'https://www.etsy.com/listing/1858032161'
+  };
+  var kcSugar = {
+    title: 'Leather Keychain with Photo Tag',
+    text: 'A leather keychain with a metal photo tag and a short engraved message. You choose the words, so it can say \u201cMom\u201d. A bestseller with hundreds of reviews. Ships from the US.',
+    shop: 'Etsy \u00b7 SugarMoonCreationsCo',
+    images: ['img/keychain-4.jpg'],
+    url: 'https://www.etsy.com/listing/1848276365'
+  };
+  items.eu.keychains.push(kcMom, kcMaxi);
+  items.uk.keychains.push(kcMom, kcMaxi);
+  items.us.keychains.push(kcTolentino, kcSugar);
+  items.other.keychains.push(kcTolentino, kcSugar);
   window.COLLECTION = { categories: categories, items: items };
 })();

@@ -168,6 +168,7 @@
             step.appendChild(fb);
           }
         }
+        if (!list_items.length) { return; }
         var grid = document.createElement('div');
         grid.className = 'cards';
         list_items.forEach(function (it) {
@@ -178,7 +179,7 @@
           function placeholder() {
             media.textContent = '';
             media.className = 'pmedia ph';
-            var PH_LABEL = { journals: 'Memory journal', ornaments: 'Keepsake ornament', collages: 'Photo collage', jewelry: 'Photo locket' };
+            var PH_LABEL = { journals: 'Memory journal', ornaments: 'Keepsake ornament', collages: 'Photo collage', jewelry: 'Photo locket', keychains: 'Photo keychain' };
             media.innerHTML = (ICONS[cat.id] || ICONS.gift) + '<span class="pph-label">' + (PH_LABEL[cat.id] || 'Gift idea') + '</span>';
           }
           var imgs = it.images || [];
