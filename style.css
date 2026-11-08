@@ -287,3 +287,10 @@ h2 { margin: 0; font-size: 34px; line-height: 1.25; font-weight: 500; letter-spa
 .kbrowse p { font-size: 14px; color: var(--soft); }
 .kbrowse .item-link { font-size: 14.5px; }
 @media (max-width: 720px) { .kcat h2 { font-size: 27px; } .compact .kcat { padding-top: 36px; } }
+
+/* gifts section on the home page: photo background */
+.offer { background: #f6ece1 url(img/gifts-bg.jpg) right bottom / cover no-repeat; border-radius: 24px; border: 1px solid var(--line); padding: 80px 64px; min-height: 520px; justify-content: flex-start; }
+.offer-text { flex: 0 1 560px; }
+@media (max-width: 760px) {
+  .offer { padding: 44px 24px 320px; min-height: 0; background-color: #f4e7dc; background-image: linear-gradient(to bottom, #f4e7dc 0, #f4e7dc calc(100% - 360px), rgba(244,231,220,0) calc(100% - 310px)), url(img/gifts-bg.jpg); background-position: 0 0, 62% bottom; background-size: 100% 100%, auto 340px; background-repeat: no-repeat; }
+}
