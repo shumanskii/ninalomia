@@ -116,6 +116,16 @@
     }
     var kl = $('[data-thanks-kopilka]');
     if (kl) { kl.setAttribute('href', REGIONS[tr] ? 'kopilka.html?r=' + tr : 'kopilka.html'); }
+    var giftCopy = {
+      mom: { title: 'Sometimes a gift says what words can’t', text: 'If you’d like to feel closer to your daughter, a small gift can open the door before words do. The holidays are a gentle reason to reach out, no explanations needed.', btn: 'Find a gift for your daughter' },
+      daughter: { title: 'Sometimes a gift speaks first', text: 'If talking to Mom still feels heavy, the holidays give you a kind reason to reach out. A thoughtful gift can say “I’m thinking of you” without a single hard word.', btn: 'Find a gift for your mom' }
+    };
+    if (giftCopy[tm]) {
+      var gt = $('[data-thanks-gift-title]'), gx = $('[data-thanks-gift-text]');
+      if (gt) { gt.textContent = giftCopy[tm].title; }
+      if (gx) { gx.textContent = giftCopy[tm].text; }
+      if (kl) { kl.textContent = giftCopy[tm].btn; }
+    }
   }
 
   /* Holiday Gift Collection */
