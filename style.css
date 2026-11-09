@@ -294,3 +294,11 @@ h2 { margin: 0; font-size: 34px; line-height: 1.25; font-weight: 500; letter-spa
 @media (max-width: 760px) {
   .offer { padding: 44px 24px 320px; min-height: 0; background-color: #f4e7dc; background-image: linear-gradient(to bottom, #f4e7dc 0, #f4e7dc calc(100% - 360px), rgba(244,231,220,0) calc(100% - 310px)), url(img/gifts-bg.jpg); background-position: 0 0, 62% bottom; background-size: 100% 100%, auto 340px; background-repeat: no-repeat; }
 }
+
+/* free PDF block on the gift page: stands out */
+.free-box { background: #F1E7DA; border: 1px solid var(--line); border-radius: 20px; padding: 36px 36px 14px; margin-top: 56px; gap: 14px; }
+.free-box h2 { font-size: 26px; font-family: var(--serif); }
+.free-box .items .it { align-items: center; border-top: 1px solid #DCCDB9; }
+.free-box .items .it:first-child { border-top: 0; }
+.free-box .btn { min-width: 0; padding: 12px 22px; font-size: 14.5px; white-space: nowrap; background: #fff; }
+@media (max-width: 640px) { .free-box { padding: 26px 20px 8px; } }
