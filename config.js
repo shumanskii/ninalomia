@@ -13,10 +13,9 @@ window.NINA = {
 
   /* Соцсети для иконок в подвале (полные адреса). Пока пусто. */
   social: {
-    instagram: "",
-    youtube: "",
-    tiktok: "",
-    pinterest: ""
+    instagram: "https://www.instagram.com/ninalomia.healing",
+    tiktok: "https://www.tiktok.com/@ninalomia.healing",
+    facebook: "https://www.facebook.com/ninalomia.healing"
   },
 
   /* Ссылка на главное видео (Instagram или YouTube). Пока пусто. */
