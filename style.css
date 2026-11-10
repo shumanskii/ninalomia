@@ -292,7 +292,7 @@ h2 { margin: 0; font-size: 34px; line-height: 1.25; font-weight: 500; letter-spa
 .offer { background: #f6ece1 url(img/gifts-bg.jpg) right bottom / cover no-repeat; border-radius: 24px; border: 1px solid var(--line); padding: 80px 64px; min-height: 520px; justify-content: flex-start; }
 .offer-text { flex: 0 1 560px; }
 @media (max-width: 760px) {
-  .offer { padding: 40px 24px 200px; min-height: 0; background-color: #f4e7dc; background-image: linear-gradient(to bottom, #f4e7dc 0, #f4e7dc calc(100% - 220px), rgba(244,231,220,0) calc(100% - 180px)), url(img/gifts-bg.jpg); background-position: 0 0, 62% bottom; background-size: 100% 100%, auto 210px; background-repeat: no-repeat; }
+  .offer { padding: 40px 24px 170px; min-height: 0; background-color: #f4e7dc; background-image: linear-gradient(to bottom, #f4e7dc 0, #f4e7dc calc(100% - 300px), rgba(244,231,220,0) calc(100% - 240px)), url(img/gifts-bg.jpg); background-size: 100% 100%, 100% auto; background-position: 0 0, center bottom; background-repeat: no-repeat; }
 }
 
 /* free PDF block on the gift page: stands out */
