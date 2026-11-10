@@ -62,7 +62,9 @@
         var fr = document.createElement('iframe');
         fr.src = embed; fr.title = 'Video from Nina';
         fr.allow = 'autoplay; fullscreen; encrypted-media'; fr.allowFullscreen = true;
-        fr.style.cssText = 'display:block;width:100%;aspect-ratio:16/9;border:0;position:relative;z-index:2;background:#2A2522';
+        fr.style.cssText = 'display:block;width:100%;max-width:400px;aspect-ratio:9/16;border:0;margin:0 auto;border-radius:24px;background:#000';
+        var pic = box.querySelector('img'); if (pic) { pic.hidden = true; }
+        box.style.background = 'transparent'; box.style.overflow = 'visible';
         box.appendChild(fr); play.hidden = true;
       } else { window.open(u, '_blank', 'noopener'); }
     });
