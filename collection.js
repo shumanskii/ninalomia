@@ -12,6 +12,12 @@
 (function () {
   var categories = [
     {
+      id: 'frames',
+      eyebrow: 'To be close every day',
+      title: 'New photos, right on her shelf',
+      text: 'Send Mom a new photo from your phone and it appears on her frame within moments. New emotions, new memories, a small surprise at any time of day.'
+    },
+    {
       id: 'journals',
       eyebrow: 'To understand her',
       title: 'Her story, in her own words',
@@ -139,6 +145,14 @@
     url: 'https://www.etsy.com/listing/4586305001'
   };
   regions.forEach(function (r) { items[r].jewelry.push(ring); }); /* country list checked Nov 6, 2026: ships worldwide; free to the US */
+  var frameText = 'Send new photos from your phone, and they appear on Mom\u2019s frame right away.';
+  var frameUs = { title: 'YENOCK Digital Photo Frame, 10.1\u2033', text: frameText + ' Room for thousands of photos, plus a memory card slot.', shop: 'Amazon', images: ['img/frame-us.jpg'] };
+  var frameUk = { title: 'BIGASUO Digital Photo Frame, 10.1\u2033', text: frameText + ' Built-in 32 GB for all your family photos.', shop: 'Amazon', images: ['img/frame-uk.jpg'] };
+  var frameEu = { title: 'WONNIE Digital Photo Frame, 10.1\u2033', text: frameText + ' Comes with a stand, 32 GB inside.', shop: 'Amazon', images: ['img/frame-eu.jpg'] };
+  items.us.frames.push(withUrl(frameUs, 'https://www.amazon.com/dp/B0GCMZ1KRB?tag=ninalomia-20'));
+  items.uk.frames.push(withUrl(frameUk, 'https://www.amazon.co.uk/dp/B0CVXKL4Z6?tag=ninalomia02-21'));
+  items.eu.frames.push(withUrl(frameEu, 'https://www.amazon.de/dp/B0CVXBQ2TF?tag=ninalomia-21'));
+  items.other.frames.push(withUrl(frameUs, 'https://www.amazon.com/dp/B0GCMZ1KRB?tag=ninalomia-20'));
   /* Photo keychains (checked Nov 7, 2026). Europe and UK: only sellers that ship from Europe.
      US, Canada and other countries: only the two US sellers (Tolentinoshop, SugarMoon).
      Photos: keychain-1 = 30SecondsToCraft, keychain-2 = MAXIGIFTstore, keychain-3 = Tolentinoshop, keychain-4 = SugarMoon. */
