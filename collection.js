@@ -13,9 +13,17 @@
   var categories = [
     {
       id: 'frames',
+      landscape: true,
       eyebrow: 'To be close every day',
       title: 'New photos, right on her shelf',
       text: 'Send Mom a new photo from your phone and it appears on her frame within moments. New emotions, new memories, a small surprise at any time of day.'
+    },
+    {
+      id: 'photoframes',
+      landscape: true,
+      eyebrow: 'To keep a good day',
+      title: 'A photo of you two, on her shelf',
+      text: 'A simple frame with a photo of a warm moment. She will see it every morning, and know that you remember the good days too.'
     },
     {
       id: 'journals',
@@ -153,6 +161,13 @@
   items.uk.frames.push(withUrl(frameUk, 'https://www.amazon.co.uk/dp/B0CVXKL4Z6?tag=ninalomia02-21'));
   items.eu.frames.push(withUrl(frameEu, 'https://www.amazon.de/dp/B0CVXBQ2TF?tag=ninalomia-21'));
   items.other.frames.push(withUrl(frameUs, 'https://www.amazon.com/dp/B0GCMZ1KRB?tag=ninalomia-20'));
+  var pfRot = { title: 'Rotating Double-Sided Photo Frame', text: 'A wooden frame that turns, so two favorite photos fit in one.', shop: 'Amazon', images: ['img/photoframe-rotating.jpg'] };
+  var pfTri = { title: 'Folding Photo Frame for Three Photos', text: 'A hinged frame that stands on a shelf, with room for a few warm moments.', shop: 'Amazon', images: ['img/photoframe-trifold.jpg'] };
+  var pfLed = { title: 'Personalized Photo Frame with a Soft Light', text: 'A glowing acrylic frame with your photos and a few words for Mom.', shop: 'Amazon', images: ['img/photoframe-led.jpg'] };
+  items.us.photoframes.push(withUrl(pfRot, 'https://www.amazon.com/dp/B0CR8886L2?tag=ninalomia-20'), withUrl(pfTri, 'https://www.amazon.com/dp/B0GKV6ZC3Y?tag=ninalomia-20'), withUrl(pfLed, 'https://www.amazon.com/dp/B0CYT1SY4Y?tag=ninalomia-20'));
+  items.other.photoframes.push(withUrl(pfRot, 'https://www.amazon.com/dp/B0CR8886L2?tag=ninalomia-20'), withUrl(pfTri, 'https://www.amazon.com/dp/B0GKV6ZC3Y?tag=ninalomia-20'), withUrl(pfLed, 'https://www.amazon.com/dp/B0CYT1SY4Y?tag=ninalomia-20'));
+  items.uk.photoframes.push(withUrl(pfRot, 'https://www.amazon.co.uk/dp/B0CR8886L2?tag=ninalomia02-21'), withUrl(pfTri, 'https://www.amazon.co.uk/dp/B0CXPF97GX?tag=ninalomia02-21'), withUrl(pfLed, 'https://www.amazon.co.uk/dp/B0DJ3FM7Y9?tag=ninalomia02-21'));
+  items.eu.photoframes.push(withUrl(pfRot, 'https://www.amazon.de/dp/B0CR8886L2?tag=ninalomia-21'), withUrl(pfTri, 'https://www.amazon.de/dp/B0FKGPXT46?tag=ninalomia-21'), withUrl(pfLed, 'https://www.amazon.de/dp/B0CZCR6YHW?tag=ninalomia-21'));
   /* Photo keychains (checked Nov 7, 2026). Europe and UK: only sellers that ship from Europe.
      US, Canada and other countries: only the two US sellers (Tolentinoshop, SugarMoon).
      Photos: keychain-1 = 30SecondsToCraft, keychain-2 = MAXIGIFTstore, keychain-3 = Tolentinoshop, keychain-4 = SugarMoon. */

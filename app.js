@@ -214,7 +214,7 @@
         grid.className = 'cards';
         list_items.forEach(function (it) {
           var card = document.createElement('article');
-          card.className = 'pcard';
+          card.className = 'pcard' + (cat.landscape ? ' land' : '');
           var media = document.createElement('div');
           media.className = 'pmedia';
           function placeholder() {

@@ -309,3 +309,11 @@ h1, h2, h3 { text-wrap: balance; }
 
 /* back link at the bottom of the gift page */
 .back-bottom { margin-top: 32px; }
+
+/* vertical video block */
+.video { max-width: 400px; margin: 0 auto; }
+.video img { aspect-ratio: 9 / 16; object-position: 50% 20%; opacity: 1; }
+
+.pcard.land .pmedia { aspect-ratio: 4 / 3; overflow: hidden; }
+.pcard.land .pstrip { position: absolute; inset: 0; height: auto; }
+.pcard.land .pstrip img { object-position: 50% 50%; }
