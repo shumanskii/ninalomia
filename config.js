@@ -19,5 +19,5 @@ window.NINA = {
   },
 
   /* Ссылка на главное видео (Instagram или YouTube). Пока пусто. */
-  videoUrl: ""
+  videoUrl: "https://drive.google.com/file/d/1n6Eti0tMWf11P2o2F_JE9YiWxtWARyw1/view?usp=drive_link"
 };

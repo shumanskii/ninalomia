@@ -51,8 +51,20 @@
   if (play) {
     if (C.videoUrl && videoNote) { videoNote.hidden = true; }
     play.addEventListener('click', function () {
-      if (C.videoUrl) { window.open(C.videoUrl, '_blank', 'noopener'); }
-      else if (videoNote) { videoNote.hidden = false; }
+      if (!C.videoUrl) { if (videoNote) { videoNote.hidden = false; } return; }
+      var u = C.videoUrl, embed = '';
+      var d = u.match(/drive\.google\.com\/file\/d\/([\w-]+)/);
+      var y = u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|shorts\/|embed\/))([\w-]{6,})/);
+      if (d) { embed = 'https://drive.google.com/file/d/' + d[1] + '/preview'; }
+      else if (y) { embed = 'https://www.youtube.com/embed/' + y[1] + '?autoplay=1&rel=0'; }
+      var box = play.parentNode;
+      if (embed && box) {
+        var fr = document.createElement('iframe');
+        fr.src = embed; fr.title = 'Video from Nina';
+        fr.allow = 'autoplay; fullscreen; encrypted-media'; fr.allowFullscreen = true;
+        fr.style.cssText = 'display:block;width:100%;aspect-ratio:16/9;border:0;position:relative;z-index:2;background:#2A2522';
+        box.appendChild(fr); play.hidden = true;
+      } else { window.open(u, '_blank', 'noopener'); }
     });
   }
 
