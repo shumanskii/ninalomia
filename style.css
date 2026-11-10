@@ -306,3 +306,6 @@ h2 { margin: 0; font-size: 34px; line-height: 1.25; font-weight: 500; letter-spa
 /* typography: avoid lonely words at line ends */
 p, li, .small, .item-link { text-wrap: pretty; }
 h1, h2, h3 { text-wrap: balance; }
+
+/* back link at the bottom of the gift page */
+.back-bottom { margin-top: 32px; }
