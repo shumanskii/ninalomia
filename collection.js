@@ -15,29 +15,25 @@
       id: 'journals',
       eyebrow: 'To understand her',
       title: 'Her story, in her own words',
-      text: 'Many of us never learned who our mother was before she became \u201cMom\u201d. A memory journal gives her a gentle way to tell her story, and gives you a reason to sit down and really listen.',
-      browse: { label: 'Browse memory journals on Etsy', url: 'https://www.etsy.com/search?q=memory%20journal%20for%20mom' }
+      text: 'Many of us never learned who our mother was before she became \u201cMom\u201d. A memory journal gives her a gentle way to tell her story, and gives you a reason to sit down and really listen.'
     },
     {
       id: 'ornaments',
       eyebrow: 'To start a new tradition',
       title: 'A shared memory on the tree',
-      text: 'A photo of a warm moment, hung where you both will see it every Christmas. A quiet way to say: we have good days too, and I want more of them.',
-      browse: { label: 'Browse photo ornaments on Etsy', url: 'https://www.etsy.com/search?q=family%20photo%20christmas%20ornament' }
+      text: 'A photo of a warm moment, hung where you both will see it every Christmas. A quiet way to say: we have good days too, and I want more of them.'
     },
     {
       id: 'jewelry',
       eyebrow: 'To keep her close',
       title: 'Something to wear close to the heart',
-      text: 'A locket holds a photo and a few words. A gentle gift for a mother or a daughter when it is hard to say it out loud.',
-      browse: { label: 'Browse photo lockets on Etsy', url: 'https://www.etsy.com/search?q=photo%20locket%20bracelet%20for%20mom' }
+      text: 'A locket holds a photo and a few words. A gentle gift for a mother or a daughter when it is hard to say it out loud.'
     },
     {
       id: 'keychains',
       eyebrow: 'To carry it with you',
       title: 'A little album for her keys or bag',
-      text: 'A pocket-sized keepsake with the photos of the days you both remember warmly. Something she can carry everywhere, and open when she misses you.',
-      browse: { label: 'Browse photo keychains on Etsy', url: 'https://www.etsy.com/search?q=photo%20album%20keychain%20for%20mom' }
+      text: 'A pocket-sized keepsake with the photos of the days you both remember warmly. Something she can carry everywhere, and open when she misses you.'
     }
   ];
   var regions = ['us', 'uk', 'eu', 'other'];
@@ -51,20 +47,20 @@
      When your Amazon Associates tag is ready, add ?tag=YOUR-TAG to the Amazon links. */
   var momsStory = {
     title: 'Mom\u2019s Story: A Memory and Keepsake Journal',
-    text: 'Over 90 gentle prompts, from early childhood to words of wisdom, so Mom can tell her story in her own handwriting. Linen hardcover with gold foil, lay-flat pages, and room for photos.',
+    text: 'Over 90 gentle prompts, from early childhood to words of wisdom, so Mom can tell her story in her own handwriting.',
     shop: 'Amazon',
     images: ['img/moms-story-1.jpg', 'img/moms-story-2.jpg', 'img/moms-story-3.jpg']
   };
   function withUrl(base, url) { var o = {}; for (var k in base) { o[k] = base[k]; } o.url = url; return o; }
   var mukawa = {
     title: 'Mom, Tell Me Your Story: Guided Memory Journal',
-    text: '147 guided questions about childhood, family, love, and what she has learned, with room for her handwriting and her photos.',
+    text: 'A guided memory journal with questions about her life.',
     shop: 'Amazon',
     url: 'https://www.amazon.com/dp/B0H2YTJPQ5?tag=ninalomia-20'
   };
   var orb = {
     title: 'Custom Glass Video Globe: Playable Memory Orb',
-    text: 'A glass keepsake that plays a short family video. Hang it on the tree or keep it on its stand. Check delivery to your country on the Etsy page.',
+    text: 'A glass ornament that plays a short family video.',
     shop: 'Etsy \u00b7 ManicuredCrafts',
     url: 'https://www.etsy.com/listing/4386310182'
   };
@@ -74,7 +70,7 @@
   items.other.journals.push(withUrl(momsStory, 'https://www.amazon.com/dp/1950968871?tag=ninalomia-20'));
   var hearYourStory = {
     title: 'Mom, I Want to Hear Your Story',
-    text: 'Over 250 gentle questions that lead Mom from her childhood to the turning points of her life, in an easy fill-in layout.',
+    text: 'Over 250 gentle questions that lead Mom from her childhood to the turning points of her life.',
     shop: 'Amazon',
     images: ['img/hear-your-story-1.jpg', 'img/hear-your-story-2.jpg', 'img/hear-your-story-3.jpg', 'img/hear-your-story-4.jpg', 'img/hear-your-story-5.jpg']
   };
@@ -90,7 +86,7 @@
   items.other.journals.push(withUrl(hearYourStory, 'https://www.amazon.com/dp/146425141X?tag=ninalomia-20'));
   var leather = {
     title: 'Mom, Tell Me Your Story: A Guided Memory Journal',
-    text: 'Over 275 guided prompts in a beige hardcover with a magnetic closure, made for Mom to write her life story by hand.',
+    text: 'Over 275 guided prompts, made for Mom to write her life story by hand.',
     shop: 'Amazon',
     images: ['img/mom-tell-me-1.jpg', 'img/mom-tell-me-2.jpg', 'img/mom-tell-me-3.jpg', 'img/mom-tell-me-4.jpg']
   };
@@ -101,14 +97,14 @@
      Not used for now: mukawa (US only, unavailable on amazon.de and amazon.co.uk) and orb. */
   var photoBall = {
     title: 'Custom Round Christmas Ball Ornament with Your Photo',
-    text: 'A ceramic ball with a favorite photo on the front, plus optional text. Upload the photo when you order and choose a tree or bells design for the back.',
+    text: 'A ceramic ball with a favorite photo on the front. Upload the photo when you order and choose a tree or bells design for the back.',
     shop: 'Etsy \u00b7 WhiskerwishesUSA',
     images: ['img/ball-1.jpg'],
     url: 'https://www.etsy.com/listing/1803363186'
   };
   var clearBall = {
     title: 'Custom Photo Christmas Ball, Clear 8 cm (3.15 in)',
-    text: 'A photo of a warm moment, cropped into a circle inside a clear ornament, with an optional LED light. Send the photo when you order. Ships from Germany, so no customs fees within Europe.',
+    text: 'A photo of a warm moment, cropped into a circle inside a clear ornament, with an optional LED light.',
     shop: 'Etsy \u00b7 FirstBellStudio',
     images: ['img/ball-2.jpg'],
     url: 'https://www.etsy.com/listing/4604068356'
@@ -129,7 +125,7 @@
   */
   var locket = {
     title: 'Custom Heart Locket Bracelet with Photo',
-    text: 'A heart locket on an adjustable chain that holds a photo of the two of you and opens like a tiny book. Made to order in the UK, so order early for Christmas. Orders to the EU and US may be subject to customs fees.',
+    text: 'A heart locket on an adjustable chain that holds a photo of the two of you and opens like a tiny book.',
     shop: 'Etsy \u00b7 Sellbyhope',
     images: ['img/jewelry-1.jpg'],
     url: 'https://www.etsy.com/listing/4559357105'
@@ -137,7 +133,7 @@
   regions.forEach(function (r) { items[r].jewelry.push(locket); });
   var ring = {
     title: 'Personalized Photo Locket Ring',
-    text: 'A small heart locket ring that opens to a hidden photo and a short message. Made to order in the UK, so order early for Christmas. Orders to the EU may be subject to customs fees.',
+    text: 'A small heart locket ring that opens to a hidden photo and a short message.',
     shop: 'Etsy \u00b7 Sellbyhope',
     images: ['img/jewelry-2.jpg'],
     url: 'https://www.etsy.com/listing/4586305001'
@@ -148,28 +144,28 @@
      Photos: keychain-1 = 30SecondsToCraft, keychain-2 = MAXIGIFTstore, keychain-3 = Tolentinoshop, keychain-4 = SugarMoon. */
   var kcMom = {
     title: 'Leather Photo Keychain for Mom',
-    text: 'A leather keychain with a photo inside, made as a gift from a son or daughter to Mom. Handmade in Poland. Check delivery to your country on the Etsy page.',
+    text: 'A leather keychain with a photo inside, made as a gift from a son or daughter to Mom.',
     shop: 'Etsy \u00b7 30SecondsToCraft',
     images: ['img/keychain-1.jpg'],
     url: 'https://www.etsy.com/listing/876202138'
   };
   var kcMaxi = {
     title: 'Mini Photo Album Keychain',
-    text: 'A tiny leather photo album on a keyring, with your own photos inside. Ships from Poland to most of Europe and the UK, so no customs fees within Europe.',
+    text: 'A tiny leather photo album on a keyring, with your own photos inside.',
     shop: 'Etsy \u00b7 MAXIGIFTstore',
     images: ['img/keychain-2.jpg'],
     url: 'https://www.etsy.com/listing/1636205920'
   };
   var kcTolentino = {
     title: 'Leather Mini Photo Album Keychain',
-    text: 'A pocket-sized leather photo album on a keyring, with your printed photos inside. Ships from the US.',
+    text: 'A pocket-sized leather photo album on a keyring, with your printed photos inside.',
     shop: 'Etsy \u00b7 TolentinoshopStore',
     images: ['img/keychain-3.jpg'],
     url: 'https://www.etsy.com/listing/1858032161'
   };
   var kcSugar = {
     title: 'Leather Keychain with Photo Tag',
-    text: 'A leather keychain with a metal photo tag and a short engraved message. You choose the words, so it can say \u201cMom\u201d. A bestseller with hundreds of reviews. Ships from the US.',
+    text: 'A leather keychain with a metal photo tag and a short engraved message. You choose the words, so it can say \u201cMom\u201d.',
     shop: 'Etsy \u00b7 SugarMoonCreationsCo',
     images: ['img/keychain-4.jpg'],
     url: 'https://www.etsy.com/listing/1848276365'

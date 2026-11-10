@@ -1,4 +1,20 @@
 (function () {
+
+  window.addEventListener('load', function () { tidyNode(document.body); });
+  /* typography: keep one- and two-letter words with the next word (no lone "A" at the end of a line) */
+  function tidyNode(root) {
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    var n, list = [];
+    while ((n = walker.nextNode())) {
+      var p = n.parentNode && n.parentNode.nodeName;
+      if (p === 'SCRIPT' || p === 'STYLE' || p === 'TEXTAREA') { continue; }
+      list.push(n);
+    }
+    list.forEach(function (t) {
+      var s = t.nodeValue.replace(/(^|\s)([A-Za-z]{1,2})[ ]+(?=\S)/g, '$1$2\u00A0');
+      if (s !== t.nodeValue) { t.nodeValue = s; }
+    });
+  }
   var C = window.NINA || {};
   var REGIONS = {
     us: 'USA and Canada',
@@ -126,6 +142,7 @@
       if (gx) { gx.textContent = giftCopy[tm].text; }
       if (kl) { kl.textContent = giftCopy[tm].btn; }
     }
+    tidyNode(document.body);
   }
 
   /* Holiday Gift Collection */
@@ -254,6 +271,7 @@
         step.appendChild(list);
         catsBox.appendChild(step);
       });
+      tidyNode(catsBox);
     }
 
     if (regionSelect) {
@@ -310,4 +328,5 @@
       var first = opts.querySelector('button'); if (first) { first.focus(); }
     }
   }
+  tidyNode(document.body);
 })();
